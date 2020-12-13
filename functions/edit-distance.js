@@ -4,9 +4,7 @@ const getMatricesFromWord = (word, matrices) => {
     let insert, remove, update;
     insert = remove = (node) => 1;
     update = (correct, misspelled) => correct !== misspelled ? 1 : 0;
-    if(word.misspelled.includes('>'))
-    console.log(word)
-    const lev = ED.levenshtein(word.correct, word.misspelled, insert, remove, update);
+    let lev = ED.levenshtein(word.correct, word.misspelled, insert, remove, update);
     const pairs = lev.pairs();
     pairs.forEach(pair => {
         if(pair[0] !== null && pair[1] === null){

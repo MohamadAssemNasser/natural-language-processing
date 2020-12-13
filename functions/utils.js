@@ -19,7 +19,6 @@ const cleanData = (_data) => {
     let data = _data.filter(s => {
         return (s !== undefined && s.includes('targ='))
     })
-    console.log(data)
     data.forEach(e => {
         const word = e.split('> ')
         words.push({
@@ -31,7 +30,7 @@ const cleanData = (_data) => {
 }
 
 const exportData = (_data) => {
-    let data = JSON.stringify(_data);
+    let data = JSON.stringify(_data, null, 2);
     fs.writeFileSync('output.json', data);
 }
 
